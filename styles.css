@@ -1,0 +1,115 @@
+:root {
+  color-scheme: dark;
+  --bg: #0d1110;
+  --panel: #131917;
+  --line: #29332f;
+  --text: #dce5e0;
+  --muted: #9aa8a1;
+  --accent: #7ee0a1;
+  --link: #8fd3ff;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+body { margin: 0; padding: 24px 16px; background: var(--bg); color: var(--text); font: 15px/1.7 var(--mono); }
+a { color: var(--link); text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 16px; top: 8px; z-index: 2; background: var(--panel); padding: 4px 8px; }
+
+.window { max-width: 820px; margin: 0 auto; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; }
+.bar { position: sticky; top: 0; z-index: 1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 20px; padding: 10px 20px; background: var(--panel); border-bottom: 1px solid var(--line); border-radius: 8px 8px 0 0; }
+.path { color: var(--accent); }
+.bar nav { display: flex; flex-wrap: wrap; gap: 14px; }
+.bar nav a { color: var(--muted); text-decoration: none; }
+.bar nav a:hover { color: var(--accent); }
+
+main { padding: 12px 32px 32px; }
+section { padding: 28px 0; border-bottom: 1px dashed var(--line); }
+section:last-child { border-bottom: 0; }
+.cmd { margin: 0 0 10px; color: var(--muted); overflow-wrap: anywhere; }
+.cmd::before { content: "$ "; color: var(--accent); }
+h1, h2, h3 { line-height: 1.25; margin: 0; }
+h1 { font-size: clamp(34px, 8vw, 54px); color: var(--accent); margin-bottom: 16px; }
+h2 { font-size: 22px; margin-bottom: 18px; }
+h3 { font-size: 18px; }
+.lead { font-size: 18px; }
+.hero p:last-child { color: var(--muted); margin-bottom: 0; }
+
+.feature { margin: 0 0 18px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 6px; }
+.feature header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 16px; margin-bottom: 8px; }
+.feature header span { color: var(--muted); font-size: 13px; }
+.feature p { margin: 0 0 10px; }
+.feature ul { margin: 0 0 12px; padding: 0; list-style: none; color: var(--muted); }
+.feature li { padding-left: 18px; position: relative; }
+.feature li::before { content: ">"; position: absolute; left: 0; color: var(--accent); }
+pre { margin: 0 0 12px; padding: 8px 12px; overflow-x: auto; background: var(--bg); border-radius: 4px; }
+.links { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 0 !important; }
+.links a::before { content: "["; color: var(--muted); }
+.links a::after { content: "]"; color: var(--muted); }
+
+.list { margin: 0; }
+.list div { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 5px 0; }
+.list dd { margin: 0; color: var(--muted); overflow-wrap: anywhere; }
+
+#output { white-space: pre-wrap; overflow-wrap: anywhere; color: var(--muted); }
+#output:not(:empty) { margin-bottom: 10px; }
+#prompt { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; }
+#prompt label { color: var(--accent); }
+#command { flex: 1 1 160px; min-width: 0; padding: 4px 0; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--text); font: 16px var(--mono); }
+
+.path { text-decoration: none; overflow-wrap: anywhere; }
+.bar nav a[aria-current] { color: var(--accent); }
+.page-title { font-size: clamp(30px, 7vw, 44px); margin-bottom: 22px; }
+.more { margin: 14px 0 0; }
+.crumb { margin: 0 0 18px; }
+.crumb a { color: var(--muted); }
+.hero .links { margin-top: 16px; }
+.hero p.links { color: inherit; }
+.tag { margin: 0 0 4px; color: var(--muted); font-size: 13px; }
+.open { color: var(--accent); }
+.note { padding-left: 12px; border-left: 2px solid var(--accent); color: var(--muted); font-size: 14px; }
+
+.big-card, .small-card { position: relative; border: 1px solid var(--line); border-radius: 6px; transition: border-color .15s; }
+.big-card:hover, .small-card:hover, .big-card:focus-within, .small-card:focus-within { border-color: var(--accent); }
+.card-link { color: var(--text); text-decoration: none; }
+.card-link::after { content: ""; position: absolute; inset: 0; border-radius: 6px; }
+.big-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); margin-bottom: 18px; overflow: hidden; }
+.big-card img { display: block; width: 100%; height: 100%; min-height: 240px; object-fit: cover; object-position: top left; background: var(--bg); }
+.big-card img.contain { object-fit: contain; object-position: center; padding: 12px; }
+.big-card > div { padding: 22px; }
+.big-card h2 { font-size: 26px; margin-bottom: 10px; }
+.big-card p:not(.tag) { margin: 0 0 12px; }
+.small-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.small-card { padding: 14px 16px; }
+.small-card h3 { font-size: 15px; margin-bottom: 6px; }
+.small-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+figure { margin: 0 0 18px; }
+figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; }
+figcaption { margin-top: 6px; color: var(--muted); font-size: 13px; }
+.prompt-list { margin: 0 0 12px; padding: 0; list-style: none; color: var(--muted); }
+.prompt-list li { position: relative; padding-left: 18px; }
+.prompt-list li::before { content: ">"; position: absolute; left: 0; color: var(--accent); }
+.list.wide div { grid-template-columns: 190px 1fr; }
+
+@media (max-width: 600px) {
+  .big-card, .small-grid, .list.wide div { grid-template-columns: minmax(0, 1fr); }
+  .list.wide div { gap: 0; }
+  .big-card img { height: 190px; min-height: 0; }
+  .big-card > div { padding: 16px; }
+  body { padding: 0; font-size: 14px; }
+  .window { border: 0; border-radius: 0; }
+  .bar { padding: 8px 16px; border-radius: 0; }
+  main { padding: 4px 16px 20px; }
+  .feature { padding: 14px; }
+  .list div { grid-template-columns: 1fr; gap: 0; padding: 7px 0; }
+  html { scroll-padding-top: 84px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

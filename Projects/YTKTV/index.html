@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YTKTV · Tony Dong</title>
+  <meta name="description" content="YTKTV turns a computer and a TV into a karaoke room, with AI vocal removal, phone song requests, and a real mixing console.">
+  <meta name="theme-color" content="#0d1110">
+  <link rel="canonical" href="https://tonyd365.github.io/Projects/YTKTV/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="window">
+    <header class="bar">
+      <a class="path" href="/Projects/">tony@github.io:~/Projects/YTKTV</a>
+      <nav aria-label="Sections">
+        <a href="/">home</a>
+        <a href="/Projects/">projects</a>
+        <a href="/Blog/">blog</a>
+        <a href="/Contact/">contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <p class="crumb"><a href="/Projects/">← all projects</a></p>
+        <p class="cmd">cat ytktv/README</p>
+        <h1>YTKTV</h1>
+        <p class="lead">Turn a computer and a TV into a karaoke room.</p>
+        <p>Every song on YouTube is in the song book. The TV shows the music video with karaoke lyrics, AI takes the singer's voice out, guests queue from their phones, and a mixing console puts your microphones on top.</p>
+        <p class="links"><a href="https://github.com/TonyD365/YTKTV/releases/latest">download</a><a href="https://tonyd365.github.io/YTKTV/">website</a><a href="https://tonyd365.github.io/YTKTV/images/promo.mp4">85s video</a><a href="https://github.com/TonyD365/YTKTV">source</a></p>
+      </section>
+
+      <section>
+        <p class="cmd">cat why.txt</p>
+        <h2>Why I made it</h2>
+        <p>I wanted to sing karaoke at home, and the only way was YouTube in a browser: ads between songs, a page made for watching, and none of the atmosphere of a real KTV. The open-source apps I tried looked nothing like a KTV, were limited to their own library, or had stopped being maintained. So I built my own in Python.</p>
+      </section>
+
+      <section>
+        <p class="cmd">ytktv --features</p>
+        <h2>What it does</h2>
+        <figure><img src="https://raw.githubusercontent.com/TonyD365/YTKTV/main/docs/images/mixer.png" alt="The YTKTV mixing console with four channel strips" loading="lazy"><figcaption>The four-channel mixing console.</figcaption></figure>
+        <dl class="list">
+          <div><dt>songs</dt><dd>Search YouTube, paste a link, or browse hot songs. Pinyin initials work too.</dd></div>
+          <div><dt>vocals</dt><dd>AI separation in the background, on your GPU when there is one, with a gapless switch.</dd></div>
+          <div><dt>lyrics</dt><dd>Synced karaoke lyrics from captions or LRCLIB, or written by Whisper on-device.</dd></div>
+          <div><dt>phones</dt><dd>Scan a QR code to queue songs with no app. A phone can even be a microphone.</dd></div>
+          <div><dt>mixer</dt><dd>EQ, compressor, echo, reverb, a noise gate, and a feedback guard on each channel.</dd></div>
+          <div><dt>scoring</dt><dd>A live pitch lane, scores out of 100, duets, and PK battles.</dd></div>
+          <div><dt>party</dt><dd>Fourteen games, danmaku, crowd sounds, mood scenes, and smart lights.</dd></div>
+        </dl>
+      </section>
+
+      <section>
+        <p class="cmd">ytktv-desk --about</p>
+        <h2>YTKTV Desk</h2>
+        <p>A staff terminal for venues with more than one room. It handles what a real KTV front desk does, and its links to the rooms are secured with <a href="/Projects/lanpair/">lanpair</a>.</p>
+        <figure><img src="https://raw.githubusercontent.com/TonyD365/YTKTV/main/docs/images/desk.png" alt="YTKTV Desk showing a board of rooms, orders, and service calls" loading="lazy"><figcaption>The room board, with orders and service calls.</figcaption></figure>
+        <ul class="prompt-list">
+          <li>Open, extend, and close rooms with timers</li>
+          <li>Service calls, orders, bills, and receipts</li>
+          <li>Members, packages, coupons, and bookings</li>
+          <li>Reports on takings, busy hours, and top songs</li>
+        </ul>
+      </section>
+
+      <section>
+        <p class="cmd">install ytktv</p>
+        <h2>Try it</h2>
+        <p>Windows:</p>
+        <pre><code>winget install TonyD365.YTKTV</code></pre>
+        <p>macOS and Linux:</p>
+        <pre><code>curl -fsSL https://tonyd365.github.io/YTKTV/install.sh | bash</code></pre>
+        <p class="note">YTKTV is free to use, including in a business, but the software may not be sold. Playing music in a public venue normally needs licences from the rights holders. It is an independent project, not affiliated with YouTube or Google.</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
