@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Not Found · Tony Dong</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    (() => {
+      const routes = {
+        "/projects": "/Projects/",
+        "/projects/ytktv": "/Projects/YTKTV/",
+        "/projects/lanpair": "/Projects/lanpair/",
+        "/blog": "/Blog/",
+        "/contact": "/Contact/",
+      };
+      const key = location.pathname.toLowerCase().replace(/\/+$/, "");
+      if (Object.hasOwn(routes, key) && routes[key] !== location.pathname) location.replace(routes[key]);
+    })();
+  </script>
+</head>
+<body>
+  <div class="window">
+    <header class="bar">
+      <a class="path" href="/">tony@github.io:~</a>
+      <nav aria-label="Sections">
+        <a href="/">home</a>
+        <a href="/Projects/">projects</a>
+        <a href="/Blog/">blog</a>
+        <a href="/Contact/">contact</a>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <p class="cmd">cd this-page</p>
+        <h1 class="page-title">404</h1>
+        <p>No such file or directory. <a href="/">Go home</a>.</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

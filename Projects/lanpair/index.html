@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>lanpair · Tony Dong</title>
+  <meta name="description" content="lanpair is a Python library for secure device pairing and messaging on the local network.">
+  <meta name="theme-color" content="#0d1110">
+  <link rel="canonical" href="https://tonyd365.github.io/Projects/lanpair/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="window">
+    <header class="bar">
+      <a class="path" href="/Projects/">tony@github.io:~/Projects/lanpair</a>
+      <nav aria-label="Sections">
+        <a href="/">home</a>
+        <a href="/Projects/">projects</a>
+        <a href="/Blog/">blog</a>
+        <a href="/Contact/">contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <p class="crumb"><a href="/Projects/">← all projects</a></p>
+        <p class="cmd">cat lanpair/README</p>
+        <h1>lanpair</h1>
+        <p class="lead">Secure device pairing and messaging for the local network, in a few lines of Python.</p>
+        <p>Devices pair once. After that, every message is encrypted to its recipient, signed by its sender, and checked for replay before your code sees it.</p>
+        <p class="links"><a href="https://tonyd365.github.io/lanpair/">website</a><a href="https://github.com/TonyD365/lanpair/wiki">docs</a><a href="https://pypi.org/project/lanpair/">pypi</a><a href="https://github.com/TonyD365/lanpair">source</a></p>
+      </section>
+
+      <section>
+        <p class="cmd">cat why.txt</p>
+        <h2>Why it exists</h2>
+        <p>It came out of YTKTV Desk, where a front desk sends commands to the rooms. The usual approach on a LAN is an HTTP endpoint or UDP broadcast with no authentication, so anyone on the network can read traffic, send commands, or replay them. Doing it properly takes real security work, so I packaged that work into a library.</p>
+      </section>
+
+      <section>
+        <p class="cmd">python host.py</p>
+        <h2>Quick look</h2>
+        <pre><code>pip install "lanpair[all]"</code></pre>
+        <pre><code>from lanpair import Host
+
+with Host("Front desk") as host:
+    if not host.devices:  # first run: show a QR code
+        host.pairing_offer().print_qr()
+        host.wait_for_pairing(timeout=300)
+    for msg in host.messages():  # already verified
+        print(msg.sender.name, msg.body)
+        host.send(msg.sender.device_id, {"type": "ok"})</code></pre>
+      </section>
+
+      <section>
+        <p class="cmd">lanpair --threat-model</p>
+        <h2>What it defends against</h2>
+        <dl class="list wide">
+          <div><dt>reading messages</dt><dd>Encrypted to the recipient with X25519 and ChaCha20-Poly1305.</dd></div>
+          <div><dt>fake commands</dt><dd>Every message is signed with Ed25519, and unpaired senders are dropped.</dd></div>
+          <div><dt>tampering</dt><dd>The signature and AEAD tag both fail.</dd></div>
+          <div><dt>redirecting</dt><dd>The recipient is signed in, and only it holds the decryption key.</dd></div>
+          <div><dt>replay</dt><dd>Sequence numbers are checked per peer and survive restarts.</dd></div>
+          <div><dt>stolen keys later</dt><dd>Forward secrecy from in-memory session keys that change every 10 minutes.</dd></div>
+          <div><dt>junk packets</dt><dd>Size limits and strict validation before any parsing work.</dd></div>
+        </dl>
+      </section>
+
+      <section>
+        <p class="cmd">pytest --how</p>
+        <h2>How it's tested</h2>
+        <ul class="prompt-list">
+          <li>Linux, macOS, and Windows on Python 3.10 to 3.15</li>
+          <li>Fully typed with mypy strict</li>
+          <li>Property tests with Hypothesis and fuzzing with Atheris</li>
+          <li>Static analysis with CodeQL and workflow audits with zizmor</li>
+          <li>A simulated LAN with an attacker node that sniffs, replays, tampers, and forges</li>
+          <li>OpenSSF Best Practices passing badge</li>
+        </ul>
+        <p class="note">lanpair has not had an external security review yet, and 6-digit code pairing is still to come.</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

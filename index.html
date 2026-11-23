@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tony Dong</title>
+  <meta name="description" content="Tony is a high school student who builds small tools that solve real problems.">
+  <meta property="og:title" content="Tony Dong">
+  <meta property="og:description" content="A high school student building small tools that solve real problems.">
+  <meta property="og:url" content="https://tonyd365.github.io/">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0d1110">
+  <link rel="canonical" href="https://tonyd365.github.io/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="window">
+    <header class="bar">
+      <a class="path" href="/">tony@github.io:~</a>
+      <nav aria-label="Sections">
+        <a href="/">home</a>
+        <a href="/Projects/">projects</a>
+        <a href="/Blog/">blog</a>
+        <a href="/Contact/">contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="about" class="hero">
+        <p class="cmd">whoami</p>
+        <h1>Tony Dong</h1>
+        <p class="lead">I'm a high school student who likes building small tools that solve real problems.</p>
+        <p>Most of my projects start with something I want to exist: a karaoke machine for the living room, a safer way for devices to talk on a local network, or a better flight sim add-on.</p>
+      </section>
+
+      <section id="work">
+        <p class="cmd">ls ~/projects --top 2</p>
+        <h2>What I'm building</h2>
+        <dl class="list">
+          <div><dt><a href="/Projects/YTKTV/">ytktv</a></dt><dd>Turns a computer and a TV into a karaoke room.</dd></div>
+          <div><dt><a href="/Projects/lanpair/">lanpair</a></dt><dd>Secure device pairing and messaging for the local network.</dd></div>
+        </dl>
+        <p class="more"><a href="/Projects/">See all projects →</a></p>
+      </section>
+
+      <section id="now">
+        <p class="cmd">cat ~/now.txt</p>
+        <h2>Right now</h2>
+        <dl class="list">
+          <div><dt>learning</dt><dd>C++, Python, and chemistry</dd></div>
+          <div><dt>building</dt><dd>Small, useful open-source tools, and open to collaborating on them</dd></div>
+          <div><dt>ask me about</dt><dd>Python desktop apps, browser userscripts, flight sims, and chess</dd></div>
+        </dl>
+        <p class="more"><a href="/Contact/">Get in touch →</a></p>
+      </section>
+
+      <section id="shell" class="shell" hidden aria-label="Interactive terminal">
+        <div id="output" role="log" aria-live="polite"></div>
+        <form id="prompt">
+          <label for="command">tony@github.io:~$</label>
+          <input id="command" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type help">
+        </form>
+      </section>
+    </main>
+  </div>
+  <script src="/main.js"></script>
+</body>
+</html>
