@@ -19,7 +19,7 @@ import markdown
 ROOT = Path(__file__).resolve().parent.parent
 SITE_URL = "https://tonyd365.github.io"
 SITE_FILES = ("index.html", "404.html", ".nojekyll", "favicon.svg", "main.js", "styles.css")
-SITE_DIRS = ("Projects", "Blog", "Contact")
+SITE_DIRS = ("Projects", "Blog", "Contact", "assets")
 POST_NAME = re.compile(r"^(\d{4}-\d{2}-\d{2})-([a-z0-9]+(?:-[a-z0-9]+)*)\.md$")
 LIST_BLOCK = re.compile(r"<!-- blog:list -->.*?<!-- /blog:list -->", re.S)
 MAIN_BLOCK = re.compile(r'<main id="main">.*?</main>', re.S)
