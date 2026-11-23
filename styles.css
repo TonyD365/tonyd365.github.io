@@ -96,9 +96,24 @@ figcaption { margin-top: 6px; color: var(--muted); font-size: 13px; }
 .prompt-list li::before { content: ">"; position: absolute; left: 0; color: var(--accent); }
 .list.wide div { grid-template-columns: 190px 1fr; }
 
+.post-list { margin: 22px 0 0; padding: 0; list-style: none; }
+.post-list li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-top: 1px dashed var(--line); }
+.post-list time { color: var(--muted); }
+.post-list p { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+.post { padding: 28px 0; overflow-wrap: anywhere; }
+.post .page-title { font-size: clamp(26px, 6vw, 38px); margin-bottom: 8px; }
+.post h2 { margin-top: 30px; margin-bottom: 10px; }
+.post h3 { margin-top: 22px; }
+.post img { max-width: 100%; height: auto; border-radius: 6px; }
+.post blockquote { margin: 16px 0; padding-left: 12px; border-left: 2px solid var(--accent); color: var(--muted); }
+.post :not(pre) > code { padding: 1px 5px; background: var(--bg); border-radius: 3px; }
+.post table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
+.post th, .post td { padding: 5px 10px; border: 1px solid var(--line); overflow-wrap: normal; }
+
 @media (max-width: 600px) {
   .big-card, .small-grid, .list.wide div { grid-template-columns: minmax(0, 1fr); }
   .list.wide div { gap: 0; }
+  .post-list li { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .big-card img { height: 190px; min-height: 0; }
   .big-card > div { padding: 16px; }
   body { padding: 0; font-size: 14px; }
